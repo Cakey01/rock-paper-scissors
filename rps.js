@@ -18,12 +18,11 @@ function getComputerChoice(answer) {
 
 function getHumanChoice(response) {
     // get response
-    return response = prompt(shoot);
+    return response = prompt('shoot');
 
 }
 
 function playRound (humanChoice, computerChoice) {
-    
 }
 
 console.log(getComputerChoice())
