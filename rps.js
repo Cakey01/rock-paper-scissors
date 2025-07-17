@@ -30,21 +30,44 @@ function getHumanChoice() {
 
 function playRound(humanChoice, computerChoice) {
     // find winner
+    let win = null;
+
+    // tie condititon
     if (humanChoice == computerChoice) {
-        console.log('tie');
+        console.log('tie round');
+    
+    // winning conditions
     } else if ((humanChoice == 'rock' && computerChoice == 'scissors') || 
                (humanChoice == 'paper' && computerChoice == 'rock') || 
                (humanChoice == 'scissors' && computerChoice == 'rock')) {
-        console.log('you win');
+        console.log('you win this round');
+        humanScore++;
+    
+    // losing conditions
     } else if ((humanChoice == 'rock' && computerChoice == 'paper') ||
                (humanChoice == 'paper' && computerChoice == 'scissors') ||
                (humanChoice == 'scissors' && computerChoice == 'rock')) {
-        console.log('you lose');
-    } 
+        console.log('you lose this round');
+        computerScore++;
+    }
+    console.log('you: ' + humanScore, 'computer: ' + computerScore); 
     
 
 }
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+function playGame(round) {
+    for (i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    if (computerScore == humanScore) {
+        console.log("tie game");
+    } else if (computerScore > humanScore) {
+        console.log("you lost the game");
+    } else {
+        console.log('you won the game');
+    }
+}
+
+playGame();
