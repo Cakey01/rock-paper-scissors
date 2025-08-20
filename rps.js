@@ -56,11 +56,11 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function playGame(round) {
-    for (i = 0; i < 5; i++) {
+
         let humanSelection = getHumanChoice();
         let computerSelection = getComputerChoice();
         playRound(humanSelection, computerSelection);
-    }
+
     if (computerScore == humanScore) {
         console.log("tie game");
     } else if (computerScore > humanScore) {
